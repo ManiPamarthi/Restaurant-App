@@ -35,10 +35,10 @@ const Header = () => {
           : "bg-white/0 backdrop-blur-sm"
       )}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
         {/* Logo */}
         <Image
-          src="/images/logo.png"
+          src="/images/logo.svg"
           alt="Logo"
           width={60}
           height={50}
@@ -46,7 +46,7 @@ const Header = () => {
         />
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-8">
+        <nav className="hidden md:flex space-x-8 items-center">
           {navLinks.map((link) => (
             <Link
               key={link.id}
@@ -55,7 +55,7 @@ const Header = () => {
                 "px-3 py-2 rounded-md text-sm font-medium transition-all duration-200",
                 activeLink === link.id
                   ? "bg-blue-50 text-blue-600"
-                  : "text-gray-700 hover:text-blue-600 hover:bg-blue-50"
+                  : "text-blue-700 font-semibold hover:text-blue-600 hover:bg-blue-50"
               )}
               onClick={() => setActiveLink(link.id)}
               aria-current={activeLink === link.id ? "page" : undefined}
@@ -76,7 +76,7 @@ const Header = () => {
                 "px-3 py-2 border-none text-sm font-medium transition-all duration-200",
                 activeLink === "blogs"
                   ? "bg-blue-50 text-blue-600"
-                  : "text-gray-700 hover:text-blue-600 hover:bg-blue-50"
+                  : "text-blue-700 font-semibold hover:text-blue-600 hover:bg-blue-50"
               )}
             >
               Blogs
@@ -87,9 +87,10 @@ const Header = () => {
               <SelectItem value="/blogs/travel">Travel</SelectItem>
             </SelectContent>
           </Select>
-        </nav>
 
-        <UserInfo />
+          {/* User Info */}
+          <UserInfo />
+        </nav>
 
         {/* Mobile Menu Button */}
         <button
@@ -143,6 +144,11 @@ const Header = () => {
                 <SelectItem value="/blogs/travel">Travel</SelectItem>
               </SelectContent>
             </Select>
+          </div>
+
+          {/* User Info */}
+          <div className="px-3 py-2">
+            <UserInfo />
           </div>
         </div>
       )}
