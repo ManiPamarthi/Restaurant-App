@@ -1,0 +1,14 @@
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000; /* Background for the video container */
+    padding: 10px;
+  }
+  
+  video {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  
