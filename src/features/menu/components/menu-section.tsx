@@ -2,21 +2,20 @@
 
 import React, { useState, useEffect } from "react";
 import HeroSection from "./hero-section";
-import MenuGrid from "./menu-grid";
 
 const MenuSection = () => {
-  const [activeCategory, setActiveCategory] = useState("all");
+  const [activeCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
-  const [filteredItems, setFilteredItems] = useState([]);
+  const [ setFilteredItems] = useState([]);
 
-  const categories = [
+  {/*const categories = [
     { id: "all", name: "All" },
     { id: "appetizers", name: "Appetizers" },
     { id: "main", name: "Main Course" },
     { id: "desserts", name: "Desserts" },
     { id: "beverages", name: "Beverages" },
     { id: "specials", name: "Special Items" },
-  ];
+  ];*/}
 
   const menuItems = [
     {

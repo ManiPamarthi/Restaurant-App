@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { FiSearch, FiShare2 } from "react-icons/fi";
 import { format } from "date-fns";
+import Image from "next/image";
 
 const blogPosts = [
   {
@@ -98,7 +99,7 @@ const BlogSection = () => {
           {filteredPosts.map((post) => (
             <div key={post.id} className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="relative h-48 overflow-hidden">
-                <img
+                <Image
                   src={post.image}
                   alt={post.title}
                   className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"

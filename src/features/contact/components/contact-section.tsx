@@ -67,7 +67,7 @@ const ContactSection = () => {
             Contact La Maison
           </h1>
           <p className="text-lg text-gray-600">
-            We&apos;d love to hear from you
+            We love to hear from you
           </p>
         </div>
         <div className="grid md:grid-cols-2 gap-12">

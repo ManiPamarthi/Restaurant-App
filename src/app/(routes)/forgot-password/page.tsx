@@ -30,7 +30,7 @@ const ForgotPassword = () => {
       await new Promise((resolve) => setTimeout(resolve, 2000));
       setSuccess(true);
       setEmail("");
-    } catch (err) {
+    } catch {
       setError("An error occurred. Please try again later.");
     } finally {
       setLoading(false);
