@@ -1,9 +1,7 @@
-import { IoRestaurantOutline } from "react-icons/io5";
-import { FiSearch, FiShoppingCart } from "react-icons/fi";
 import React from "react";
 import Image from "next/image";
 
-const HeroSection = ({ searchQuery, setSearchQuery }) => {
+const HeroSection = () => {
   return (
     <>
         <div className="absolute inset-0">
