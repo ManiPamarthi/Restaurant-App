@@ -37,14 +37,15 @@ const Header = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
         {/* Logo */}
-        <Image
-          src="/images/logo.svg"
-          alt="Logo"
-          width={60}
-          height={50}
-          className="flex-shrink-0 md:h-10"
-        />
-
+        <Link href={"/dashboard"}>
+          <Image
+            src="/images/logo.svg"
+            alt="Logo"
+            width={60}
+            height={50}
+            className="flex-shrink-0 md:h-10"
+          />
+      </Link>
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-8 items-center">
           {navLinks.map((link) => (
@@ -94,7 +95,7 @@ const Header = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden rounded-md p-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 focus:outline-none"
+          className="md:hidden rounded-md p-2 text-blue-700 hover:text-blue-600 hover:bg-blue-50 focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
           aria-expanded={isOpen}
           aria-label="Toggle menu"
