@@ -5,8 +5,28 @@ import { BsPerson, BsCalendar3, BsClock, BsPeople } from "react-icons/bs";
 import { MdOutlineTableBar, MdOutlineEmail, MdPhone } from "react-icons/md";
 import { format } from "date-fns";
 
+interface FormData {
+  fullName: string;
+  email: string;
+  phone: string;
+  date: string;
+  time: string;
+  guests: string;
+  seating: string;
+  occasion: string;
+  specialRequests: string;
+}
+
+interface FormErrors {
+  fullName?: string;
+  email?: string;
+  phone?: string;
+  date?: string;
+  time?: string;
+}
+
 const ReservationForm = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     fullName: "",
     email: "",
     phone: "",
@@ -18,7 +38,7 @@ const ReservationForm = () => {
     specialRequests: "",
   });
 
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -30,7 +50,8 @@ const ReservationForm = () => {
   ];
 
   const validateForm = () => {
-    const newErrors = {};
+    const newErrors: FormErrors = {}; // Explicitly type newErrors as FormErrors
+  
     if (!formData.fullName.trim()) newErrors.fullName = "Name is required";
     if (!formData.email.trim()) {
       newErrors.email = "Email is required";
@@ -44,12 +65,12 @@ const ReservationForm = () => {
     }
     if (!formData.date) newErrors.date = "Date is required";
     if (!formData.time) newErrors.time = "Time is required";
-
+  
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     if (validateForm()) {
       setIsSubmitting(true);
@@ -76,13 +97,19 @@ const ReservationForm = () => {
     }
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-    if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: "" }));
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+    if (name in errors) {
+      setErrors((prev) => ({
+        ...prev,
+        [name]: "",
+      }));
     }
-  };
+  };  
 
   if (isSuccess) {
     return (
@@ -93,7 +120,7 @@ const ReservationForm = () => {
               Reservation Confirmed!
             </h2>
             <p className="mt-2 text-sm text-gray-600">
-              Thank you for choosing our restaurant. We've sent a confirmation email with your reservation details.
+              Thank you for choosing our restaurant. We have sent a confirmation email with your reservation details.
             </p>
             <button
               onClick={() => setIsSuccess(false)}
@@ -349,7 +376,7 @@ const ReservationForm = () => {
             </div>
           </form>
         </div>
-      </div>
+      </div> 
     </div>
   );
 };

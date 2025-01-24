@@ -6,6 +6,7 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { FaEye, FaEyeSlash, FaGoogle, FaGithub } from "react-icons/fa";
 import { IoLogoApple } from "react-icons/io5";
+import Image from "next/image";
 
 export default function LoginForm() {
   const [email, setEmail] = useState("");
@@ -16,7 +17,7 @@ export default function LoginForm() {
 
   const router = useRouter();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     setLoading(true);
 
@@ -44,14 +45,15 @@ export default function LoginForm() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-6">
       <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-md">
-        <img
+        <Image
           src="/images/cheflogo.png"
           alt="User Avatar"
-          className="w-16 h-16 mx-auto mb-4 rounded-full"
+          className="mx-auto mb-4 rounded-full"
+          width={70}
+          height={70}
         />
         <h1 className="text-2xl font-bold text-gray-800 text-center mb-4">Welcome Back</h1>
         <p className="text-sm text-gray-600 text-center mb-6">Sign in to access your account</p>
-
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700">
@@ -101,7 +103,6 @@ export default function LoginForm() {
               Forgot Password?
             </a>
           </div>
-
           <button
             type="submit"
             disabled={loading}
@@ -139,7 +140,7 @@ export default function LoginForm() {
         </form>
 
         <p className="mt-8 text-center text-sm text-gray-600">
-          Don't have an account?{" "}
+          Dont have an account?{" "}
           <Link
             href="/register"
             className="font-medium text-blue-600 hover:text-blue-500"

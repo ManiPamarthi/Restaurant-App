@@ -4,6 +4,7 @@ import { useState } from "react";
 import { FiMail } from "react-icons/fi";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import Link from "next/link";
+import Image from "next/image";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -11,12 +12,12 @@ const ForgotPassword = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
 
-  const validateEmail = (email) => {
+  const validateEmail = (email: string) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     if (!validateEmail(email)) {
       setError("Please enter a valid email address");
@@ -41,10 +42,12 @@ const ForgotPassword = () => {
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-6">
       <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-md">
         <div className="text-center mb-6">
-        <img
+          <Image
             src="/images/cheflogo.png"
             alt="Logo"
-            className="w-16 h-16 mx-auto mb-4 rounded-full"
+            className="mx-auto mb-4 rounded-full"
+            width={70}
+            height={70}
           />
           <h1 className="text-2xl font-bold text-gray-800 mt-4">
             Forgot Your Password?
@@ -53,7 +56,6 @@ const ForgotPassword = () => {
             Enter your email address, and we all send you instructions to reset your password.
           </p>
         </div>
-
         {success ? (
           <div className="rounded-md bg-green-50 p-4">
             <p className="text-sm text-green-800">
@@ -98,7 +100,6 @@ const ForgotPassword = () => {
                 </p>
               )}
             </div>
-
             <div>
               <button
                 type="submit"
@@ -114,7 +115,6 @@ const ForgotPassword = () => {
             </div>
           </form>
         )}
-
         <div className="mt-6 text-center">
           <p className="text-sm text-gray-600">
             Remember your password?{" "}

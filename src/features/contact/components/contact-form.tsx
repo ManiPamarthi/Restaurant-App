@@ -5,14 +5,7 @@ import { useForm } from "react-hook-form"
 import { z } from "zod"
  
 import { Button } from "@/components/ui/button"
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage, } from "@/components/ui/form";
 import { Textarea } from "@/components/ui/textarea"
 import { Input } from "@/components/ui/input"
 import { FaCheckCircle } from "react-icons/fa"
@@ -37,7 +30,6 @@ const FormSchema = z.object({
   })
 
 const ContactForm = () => {
-
     const form = useForm<z.infer<typeof FormSchema>>({
         resolver: zodResolver(FormSchema),
         defaultValues: {
