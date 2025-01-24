@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function RegisterForm() {
   const [name, setName] = useState("");
@@ -13,7 +14,7 @@ export default function RegisterForm() {
 
   const router = useRouter();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
 
     if (!name || !email || !password) {
@@ -69,10 +70,12 @@ export default function RegisterForm() {
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-6">
       <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-md">
         <div className="text-center mb-6">
-          <img
+          <Image
             src="/images/cheflogo.png"
             alt="Logo"
-            className="w-16 h-16 mx-auto mb-4 rounded-full"
+            className="mx-auto mb-4 rounded-full"
+            width={70}
+            height={70}
           />
           <h1 className="text-2xl font-bold text-gray-800">Create Account</h1>
           <p className="text-sm text-gray-600">Get started with your free account</p>

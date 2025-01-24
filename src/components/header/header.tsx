@@ -53,7 +53,6 @@ const Header = () => {
             className="flex-shrink-0 md:h-10"
           />
         </Link>
-
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-8 items-center">
           {navLinks.map((link) => (
@@ -72,7 +71,6 @@ const Header = () => {
               {link.label}
             </Link>
           ))}
-
           {/* Blogs Dropdown */}
           <Select
             onValueChange={(value) => handleNavigation(value)}
@@ -93,11 +91,9 @@ const Header = () => {
               <SelectItem value="/blogs/travel">Travel</SelectItem>
             </SelectContent>
           </Select>
-
           {/* User Info */}
           <UserInfo />
         </nav>
-
         {/* Mobile Menu */}
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
@@ -109,7 +105,6 @@ const Header = () => {
               <AlignJustify size={24} />
             </button>
           </SheetTrigger>
-
           <SheetContent side="right" className="p-4 bg-white shadow-lg">
             <div className="space-y-4">
               {navLinks.map((link) => (
@@ -128,7 +123,6 @@ const Header = () => {
                   {link.label}
                 </Link>
               ))}
-
               {/* Blogs Dropdown */}
               <Select
                 onValueChange={(value) => handleNavigation(value)}
@@ -142,7 +136,6 @@ const Header = () => {
                   <SelectItem value="/blogs/travel">Travel</SelectItem>
                 </SelectContent>
               </Select>
-
               {/* User Info */}
               <UserInfo />
             </div>

@@ -4,12 +4,13 @@ import { useState } from "react";
 import Image from 'next/image';
 import { ArrowUp } from "lucide-react";
 import { Button } from "../ui/button";
+import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
   const [showScrollButton, setShowScrollButton] = useState(false);
 
-  const handleSubscribe = (e) => {
+  const handleSubscribe = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     console.log("Subscribed:", email);
     setEmail("");
@@ -18,7 +19,6 @@ const Footer = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
-
   // Show scroll button when scrolling down
   if (typeof window !== "undefined") {
     window.addEventListener("scroll", () => {
@@ -31,7 +31,7 @@ const Footer = () => {
     <footer className="bg-green-200 text-dark-foreground relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                  {/* Company Info */}
+                {/* Company Info */}
                   <div className="space-y-4">
                       <Image
                           src="/images/logo.svg"
@@ -42,14 +42,13 @@ const Footer = () => {
                       <p className="text-muted-foreground">
                           We create digital experiences that matter. Innovation meets excellence in everything we do.
                       </p>
-                      {/*<div className="flex space-x-4">
-      <FaFacebook className="text-2xl hover:text-primary transition-colors cursor-pointer" />
-      <FaTwitter className="text-2xl hover:text-primary transition-colors cursor-pointer" />
-      <FaInstagram className="text-2xl hover:text-primary transition-colors cursor-pointer" />
-      <FaLinkedin className="text-2xl hover:text-primary transition-colors cursor-pointer" />
-    </div>*/}
+            <div className="flex space-x-4">
+                <FaFacebook className="text-2xl hover:text-primary transition-colors cursor-pointer" />
+                <FaTwitter className="text-2xl hover:text-primary transition-colors cursor-pointer" />
+                <FaInstagram className="text-2xl hover:text-primary transition-colors cursor-pointer" />
+                <FaLinkedin className="text-2xl hover:text-primary transition-colors cursor-pointer" />
+            </div>
                   </div>
-
                   {/* Quick Links */}
                   <div>
                       <h3 className="text-lg font-bold mb-4">Quick Links</h3>
@@ -66,7 +65,6 @@ const Footer = () => {
                           ))}
                       </ul>
                   </div>
-
                   {/* Resources */}
                   <div>
                       <h3 className="text-lg font-bold mb-4">Resources</h3>
@@ -83,7 +81,6 @@ const Footer = () => {
                           ))}
                       </ul>
                   </div>
-
                   {/* Contact Info & Newsletter */}
                   <div className="space-y-4">
                       <h3 className="text-lg font-bold mb-4">Stay Updated</h3>
@@ -120,7 +117,6 @@ const Footer = () => {
                   </div>
               </div>
           </div>
-
           {/* Bottom Bar */}
           <div className="border-t border-yellow-400">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -145,7 +141,6 @@ const Footer = () => {
                   </div>
               </div>
           </div>
-
           {/* Scroll to Top Button */}
           {showScrollButton && (
               <button

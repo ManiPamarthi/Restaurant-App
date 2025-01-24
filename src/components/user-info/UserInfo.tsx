@@ -16,7 +16,7 @@ export default function UserInfo() {
 
   const handleSignOut = () => {
     signOut({
-      callbackUrl: "/", // Redirect to the login page after signing out
+      callbackUrl: "/",
     });
   };
 
