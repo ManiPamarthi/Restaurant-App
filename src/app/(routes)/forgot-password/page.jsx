@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { FiLock, FiMail } from "react-icons/fi";
+import { FiMail } from "react-icons/fi";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import Link from "next/link";
 
