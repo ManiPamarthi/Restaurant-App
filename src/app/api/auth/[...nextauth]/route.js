@@ -8,37 +8,54 @@ export const authOptions = {
   providers: [
     CredentialsProvider({
       name: "credentials",
-      credentials: {},
-
+      credentials: {
+        email: { label: "Email", type: "text", placeholder: "user@example.com" },
+        password: { label: "Password", type: "password" },
+      },
       async authorize(credentials) {
+        // Validate input
+        if (!credentials || !credentials.email || !credentials.password) {
+          throw new Error("Email and password are required");
+        }
+
         const { email, password } = credentials;
+
         try {
+          // Connect to the database
           await connectMongoDB();
           const user = await User.findOne({ email });
 
+          // Check if the user exists
           if (!user) {
-            return null;
+            throw new Error("Invalid email or password");
           }
 
+          // Compare passwords
           const passwordsMatch = await bcrypt.compare(password, user.password);
 
           if (!passwordsMatch) {
-            return null;
+            throw new Error("Invalid email or password");
           }
 
-          return user;
+          // Return user object if authentication is successful
+          return {
+            id: user._id.toString(),
+            email: user.email,
+            name: user.name,
+          };
         } catch (error) {
-          console.log("Error: ", error);
+          console.error("Error during authentication:", error);
+          throw new Error("Internal server error");
         }
       },
     }),
   ],
   session: {
-    strategy: "jwt",
+    strategy: "jwt", // Use JSON Web Token for sessions
   },
   secret: process.env.NEXTAUTH_SECRET,
   pages: {
-    signIn: "/",
+    signIn: "/", // Custom sign-in page
   },
 };
 
