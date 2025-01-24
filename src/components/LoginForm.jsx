@@ -45,7 +45,7 @@ export default function LoginForm() {
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-6">
       <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-md">
         <img
-          src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=100&h=100&fit=crop"
+          src="/images/cheflogo.png"
           alt="User Avatar"
           className="w-16 h-16 mx-auto mb-4 rounded-full"
         />

@@ -36,13 +36,13 @@ const AboutStorySection = () => {
             </section>
             <section className="py-20 bg-gray-50">
             <div className="container mx-auto px-6">
-                <h2 className="text-4xl font-serif text-center mb-12">Our Team</h2>
+                <h2 className="text-5xl font-semibold text-center mb-12">Our Team</h2>
                 <div className="grid md:grid-cols-3 gap-8">
                     {team.map((member, index) => (
                         <motion.div
                             key={index}
                             whileHover={{ y: -10 }}
-                            className="text-center"
+                            className="p-6 bg-white rounded-lg shadow-lg text-center"
                         >
                             <Image
                                 src={member.image}

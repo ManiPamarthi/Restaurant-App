@@ -25,7 +25,7 @@ const AboutLocation = () => {
   return (
     <section className="py-20 bg-gray-50 mb-18">
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-serif text-center mb-12">Visit Us</h2>
+        <h2 className="text-4xl font-serif flex flext-row justify-center mb-12">Visit Us</h2>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Address and Details Section */}
           <div>
@@ -60,10 +60,10 @@ const AboutLocation = () => {
           {/* Image Section */}
           <div className="relative h-96">
             <Image
-              src="/images/menuone.png"
+              src="/images/map.png"
               alt="Restaurant Location"
               className="object-cover rounded-lg shadow-lg"
-              width={500}
+              width={400}
               height={200}
             />
           </div>

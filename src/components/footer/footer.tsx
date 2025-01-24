@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from 'next/image';
 import { ArrowUp } from "lucide-react";
+import { Button } from "../ui/button";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -33,7 +34,7 @@ const Footer = () => {
                   {/* Company Info */}
                   <div className="space-y-4">
                       <Image
-                          src="/images/logo.png"
+                          src="/images/logo.svg"
                           alt="Company Logo"
                           className=""
                           width={78}
@@ -94,12 +95,13 @@ const Footer = () => {
                               placeholder="Enter your email"
                               className="w-full px-4 py-2 rounded bg-dark-card text-dark-foreground border border-dark-border focus:outline-none focus:border-primary"
                               required />
-                          <button
+                          <Button
+                              variant="default"
                               type="submit"
-                              className="w-full bg-primary text-primary-foreground px-4 py-2 rounded hover:bg-primary/90 transition-colors"
+                              className=""
                           >
                               Subscribe
-                          </button>
+                          </Button>
                       </form>
                       <div className="space-y-2 text-muted-foreground">
                           <div className="flex items-center space-x-2">
