@@ -41,7 +41,11 @@ const ForgotPassword = () => {
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-6">
       <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-md">
         <div className="text-center mb-6">
-          <FiLock className="w-12 h-12 text-indigo-600 mx-auto" />
+        <img
+            src="/images/cheflogo.png"
+            alt="Logo"
+            className="w-16 h-16 mx-auto mb-4 rounded-full"
+          />
           <h1 className="text-2xl font-bold text-gray-800 mt-4">
             Forgot Your Password?
           </h1>
