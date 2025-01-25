@@ -67,20 +67,20 @@ const menuData = {
 };
 
 const MenuSection = () => {
-  const [activeCategory, setActiveCategory] = useState("appetizers");
+  const [activeCategory,] = useState("appetizers");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedDish, setSelectedDish] = useState(null);
-  const [filterDietary, setFilterDietary] = useState({
+  const [filterDietary,] = useState({
     vegetarian: false,
     glutenFree: false,
   });
 
-  const categories = [
+  {/*const categories = [
     { id: "appetizers", name: "Appetizers" },
     { id: "mainCourses", name: "Main Courses" },
     { id: "desserts", name: "Desserts" },
     { id: "beverages", name: "Beverages" },
-  ];
+  ];*/}
 
   const filteredItems = menuData[activeCategory]?.filter((item) => {
     const matchesSearch =
